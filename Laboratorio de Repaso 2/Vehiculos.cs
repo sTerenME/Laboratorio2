@@ -10,14 +10,14 @@ namespace Laboratorio_de_Repaso_2
     {
         string placa;
         string marca;
-        int modelo;
+        string modelo;
         string color;
-        int prepork;
+        double prepork;
 
         public string Placa { get => placa; set => placa = value; }
         public string Marca { get => marca; set => marca = value; }
-        public int Modelo { get => modelo; set => modelo = value; }
+        public string Modelo { get => modelo; set => modelo = value; }
         public string Color { get => color; set => color = value; }
-        public int Prepork { get => prepork; set => prepork = value; }
+        public double Prepork { get => prepork; set => prepork = value; }
     }
 }

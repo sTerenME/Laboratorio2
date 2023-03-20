@@ -166,6 +166,7 @@
             this.AgregarV.TabIndex = 13;
             this.AgregarV.Text = "Agregar Vehiculo";
             this.AgregarV.UseVisualStyleBackColor = true;
+            this.AgregarV.Click += new System.EventHandler(this.AgregarV_Click);
             // 
             // Form1
             // 

@@ -8,11 +8,11 @@ namespace Laboratorio_de_Repaso_2
 {
     internal class Clientes
     {
-        int nit;
+        string nit;
         string nombre;
         string direccion;
 
-        public int Nit { get => nit; set => nit = value; }
+        public string Nit { get => nit; set => nit = value; }
         public string Nombre { get => nombre; set => nombre = value; }
         public string Direccion { get => direccion; set => direccion = value; }
     }

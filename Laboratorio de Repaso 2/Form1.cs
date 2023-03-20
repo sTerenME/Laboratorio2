@@ -5,6 +5,8 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,6 +18,7 @@ namespace Laboratorio_de_Repaso_2
         List<Alquileres> Alquileres = new List<Alquileres>();
         List<Vehiculos> Vehiculos = new List<Vehiculos>();
         List<Clientes> Clientes = new List<Clientes>();
+        List<Resumen> Resumen = new List<Resumen>();
 
         public Form1()
         {
@@ -32,7 +35,7 @@ namespace Laboratorio_de_Repaso_2
             dataGridView2.DataSource = Vehiculos;
             dataGridView2.Refresh();
             dataGridView3.DataSource = null;
-            dataGridView3.DataSource = ;
+            dataGridView3.DataSource = Resumen;
             dataGridView3.Refresh();
         }
 
@@ -46,7 +49,7 @@ namespace Laboratorio_de_Repaso_2
             {
                 Clientes cliTemp = new Clientes();
 
-                cliTemp.Nit = Convert.ToInt32(reader.ReadLine());
+                cliTemp.Nit = reader.ReadLine();
                 cliTemp.Nombre = reader.ReadLine(); ;
                 cliTemp.Direccion = reader.ReadLine();
                 Clientes.Add(cliTemp);
@@ -57,19 +60,18 @@ namespace Laboratorio_de_Repaso_2
 
         void leer2()
         {
-            string fileName = "Clientes.txt";
+            string fileName = "Vehiculos.txt";
             FileStream stream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
             StreamReader reader = new StreamReader(stream);
-
-            while (reader.Peek() > -1)
+            while (reader.Peek() > -1&& reader.ReadLine()!=null)
             {
                 Vehiculos vehTemp = new Vehiculos();
 
                 vehTemp.Placa = reader.ReadLine();
                 vehTemp.Marca = reader.ReadLine();
-                vehTemp.Modelo = Convert.ToInt32(reader.ReadLine());
-                vehTemp.Marca = reader.ReadLine(); ;
-                vehTemp.Prepork = Convert.ToInt32(reader.ReadLine());
+                vehTemp.Modelo = reader.ReadLine();
+                vehTemp.Color = reader.ReadLine(); ;
+                vehTemp.Prepork = Convert.ToDouble(reader.ReadLine());
                 Vehiculos.Add(vehTemp);
             }
 
@@ -78,7 +80,7 @@ namespace Laboratorio_de_Repaso_2
 
         void leer3()
         {
-            string fileName = "Clientes.txt";
+            string fileName = "Alquileres.txt";
             FileStream stream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
             StreamReader reader = new StreamReader(stream);
 
@@ -86,7 +88,7 @@ namespace Laboratorio_de_Repaso_2
             {
                 Alquileres alqTemp = new Alquileres();
 
-                alqTemp.Nit = Convert.ToInt32(reader.ReadLine());
+                alqTemp.Nit = reader.ReadLine();
                 alqTemp.Placa = reader.ReadLine();
                 alqTemp.Fechaalquiler = Convert.ToDateTime(reader.ReadLine());
                 alqTemp.Fechadevolucion = Convert.ToDateTime(reader.ReadLine()); ;
@@ -100,6 +102,26 @@ namespace Laboratorio_de_Repaso_2
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void AgregarV_Click(object sender, EventArgs e)
+        {
+           /* Vehiculos vehTemp = new Vehiculos();
+            vehTemp.Direccion = texto;
+            vehTemp.Veces = 1;
+            vehTemp.Fecha = DateTime.Now;
+            vehTemp.Add(urlTemp);
+
+            File.Delete(fileName);
+            FileStream stream = new FileStream(fileName, FileMode.OpenOrCreate, FileAccess.Write);
+            StreamWriter writer = new StreamWriter(stream);
+            int i = 0;
+            foreach (var url in urls)
+            {
+                writer.WriteLine(urls[i].Direccion);
+                i++;
+            }
+            writer.Close();*/
         }
     }
 }
